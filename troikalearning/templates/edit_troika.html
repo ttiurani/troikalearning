@@ -48,13 +48,16 @@
 				{% endfor %}
           </dt>
           <dt>
-            <input type="submit" name="action" value="{{ _('Create Troika') }}">
+            <input type="submit" class="btn" name="action" value="{{ 
+_('Create Troika') }}">
           </dt>
           {% else %}  
           <dt>
-            <input type="submit" name="action" value="{{ _('Save Troika') }}">
+            <input type="submit" class="btn" name="action" value="{{ 
+_('Save Troika') }}">
             {% if access == 'delete' %}
-            <input type="submit" name="action" value="{{ _('Delete Troika') }}">
+            <input type="submit" class="btn" name="action" value="{{ 
+_('Delete Troika') }}">
             {% endif %}
           </dt>
           {% endif %}  

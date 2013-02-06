@@ -27,7 +27,8 @@
             <dt>{{ feedbackform.hidden_tag() }}</dt>
             <dt>{{ feedbackform.description.label }} {{ feedbackform.description(class="tl-text-large", rows=10) }}</dt>
             <dt>
-              <input type="submit" name="action" value="Save">
+              <input type="submit" class="btn" name="action" 
+value="{{ _('Save') }}">
             </dt>
           </dl>
         </form>
