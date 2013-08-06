@@ -235,6 +235,13 @@ def get_user(email):
         return None
     return User.query.filter_by(email=email).first()
 
+def get_user_by_reset_key(reset_key):
+    if reset_key is None:
+        return None
+    return User.query.filter_by(password_reset_key=reset_key) \
+                     .filter(User.password_reset_expire > datetime.now()) \
+                     .first()
+
 def user_exists(email = None, alias = None):
     user = None
     if email is None:

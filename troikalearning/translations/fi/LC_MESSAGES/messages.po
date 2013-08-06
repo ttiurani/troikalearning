@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-06 20:46+0200\n"
-"PO-Revision-Date: 2013-02-06 20:47+0200\n"
+"POT-Creation-Date: 2013-08-06 22:12+0300\n"
+"PO-Revision-Date: 2013-08-06 22:32+0200\n"
 "Last-Translator: Timo Tiuraniemi <timo.tiuraniemi@iki.fi>\n"
 "Language-Team: fi <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.6\n"
-"X-Generator: Poedit 1.5.4\n"
+"Generated-By: Babel 1.3\n"
+"X-Generator: Poedit 1.5.7\n"
 
 #: troikalearning/forms.py:31
 msgid "First Name *"
@@ -35,7 +35,7 @@ msgid "Email Address *"
 msgstr "Sähköpostiosoite *"
 
 #: troikalearning/forms.py:40 troikalearning/forms.py:49
-#: troikalearning/forms.py:111
+#: troikalearning/forms.py:111 troikalearning/forms.py:115
 msgid "Not a valid email address"
 msgstr "Sähköpostiosoite ei kelpaa"
 
@@ -44,6 +44,7 @@ msgid "Password *"
 msgstr "Salasana *"
 
 #: troikalearning/forms.py:43 troikalearning/forms.py:59
+#: troikalearning/forms.py:120
 msgid "Passwords must match"
 msgstr "Salasanojen pitää täsmätä"
 
@@ -157,200 +158,247 @@ msgstr "Rooli"
 msgid "Troika Id"
 msgstr "Troikan Id"
 
-#: troikalearning/forms.py:110
+#: troikalearning/forms.py:110 troikalearning/forms.py:114
 msgid "Email Address"
 msgstr "Sähköpostiosoite"
 
-#: troikalearning/security.py:115
+#: troikalearning/forms.py:118
+msgid "New Password *"
+msgstr "Uusi salasana *"
+
+#: troikalearning/forms.py:121
+msgid "Repeat New Password *"
+msgstr "Uusi salasana uudelleen *"
+
+#: troikalearning/security.py:117
 msgid "Invalid redirect target"
 msgstr "Virheellinen jälleenohjauskohde"
 
-#: troikalearning/views.py:72
+#: troikalearning/views.py:73
 msgid "Invalid language form"
 msgstr "Virheellinen kielilomake"
 
-#: troikalearning/views.py:117
+#: troikalearning/views.py:118
 msgid "You were logged in"
 msgstr "Kirjauduit sisään"
 
-#: troikalearning/views.py:124
+#: troikalearning/views.py:125
 msgid "Invalid email/password"
 msgstr "Virheellinen sähköposti tai salasana"
 
-#: troikalearning/views.py:130
+#: troikalearning/views.py:133
 msgid "User with given email or alias already exists"
 msgstr "Käyttäjä antamallasi sähköpostiosoitteella on jo olemassa"
 
-#: troikalearning/views.py:137
+#: troikalearning/views.py:140
 msgid "Registration successful, you were logged in"
 msgstr "Rekisteröinti onnistui, kirjauduit sisään"
 
-#: troikalearning/views.py:154
+#: troikalearning/views.py:157
 msgid "You need to login or register first"
 msgstr "Sinun pitää kirjautua tai rekisteröityä ensin"
 
+#: troikalearning/views.py:174
+msgid "Could not find user with given email"
+msgstr "Käyttäjää ei löytynyt annetulla salasanalla"
+
+#: troikalearning/views.py:176
+msgid "Troikalearning.org password reset"
+msgstr "Troikalearning.org: salasanan vaihto"
+
+#: troikalearning/views.py:180
+msgid ""
+"Go to the following link to reset your password in the troikalearning.org "
+"website:"
+msgstr ""
+"Vaihtaaksesi salasanasi troikalearning.org -verkkopalveluun, mene seuraavaan "
+"osoitteeseen:"
+
+#: troikalearning/views.py:183
+msgid ""
+"If you did not ask for your password to be reset, you can ignore this "
+"message."
+msgstr "Jos et pyytänyt uutta salasanaa, voit sivuuttaa tämän viestin."
+
+#: troikalearning/views.py:187
+#, python-format
+msgid "Password reset instructions sent to %(email)s"
+msgstr "Ohjeet salasanan vaihtoon lähetettiin osoitteeseen %(email)s"
+
 #: troikalearning/views.py:189
+msgid "Invalid forgot form"
+msgstr "Virheellinen lomake"
+
+#: troikalearning/views.py:196
+msgid "Invalid password reset link"
+msgstr "Virheellinen salasanan vaihto-osoite"
+
+#: troikalearning/views.py:206
+msgid "Password reset successful, you were logged in"
+msgstr "Salasanan vaihto onnistui, kirjauduit sisään"
+
+#: troikalearning/views.py:238
 msgid "Information updated"
 msgstr "Tiedot päivitetty"
 
-#: troikalearning/views.py:191
+#: troikalearning/views.py:240
 msgid "Invalid password"
 msgstr "Virheellinen salasana"
 
-#: troikalearning/views.py:246 troikalearning/views.py:256
-#: troikalearning/views.py:257 troikalearning/views.py:258
+#: troikalearning/views.py:295 troikalearning/views.py:305
+#: troikalearning/views.py:306 troikalearning/views.py:307
 msgid "Not set"
 msgstr "Ei asetettu"
 
-#: troikalearning/views.py:289
+#: troikalearning/views.py:338
 msgid "Invalid Troika Id"
 msgstr "Virheellinen Troikan Id"
 
-#: troikalearning/views.py:291
+#: troikalearning/views.py:340
 msgid "Can not invite to a completed Troika"
 msgstr "Ei voi kutsua jo pidettyyn Troikaan"
 
-#: troikalearning/views.py:293
+#: troikalearning/views.py:342
 #, python-format
 msgid "Come join the Troika \"%(title)s\"!"
 msgstr "Liity Troikaan \"%(title)s\"!"
 
-#: troikalearning/views.py:297
+#: troikalearning/views.py:346
 #, python-format
 msgid "%(user)s thought you should join the Troika \"%(title)s\":"
 msgstr "%(user)s haluaa, että liityt Troikaan \"%(title)s\":"
 
-#: troikalearning/views.py:304
+#: troikalearning/views.py:353
 msgid "the lead"
 msgstr "vetäjänä"
 
-#: troikalearning/views.py:306
+#: troikalearning/views.py:355
 msgid "Troika already has a lead"
 msgstr "Troikalla on jo vetäjä"
 
-#: troikalearning/views.py:309
+#: troikalearning/views.py:358
 msgid "the first learner"
 msgstr "ensimmäisenä oppijana"
 
-#: troikalearning/views.py:311
+#: troikalearning/views.py:360
 msgid "Troika already has a first learner"
 msgstr "Troikalla on jo ensimmäinen oppija"
 
-#: troikalearning/views.py:314
+#: troikalearning/views.py:363
 msgid "the second learner"
 msgstr "toisena oppijana"
 
-#: troikalearning/views.py:316
+#: troikalearning/views.py:365
 msgid "Troika already has a second learner"
 msgstr "Troikalla on jo toinen oppija"
 
-#: troikalearning/views.py:318
+#: troikalearning/views.py:367
 msgid "a participant"
 msgstr "osallistujana"
 
-#: troikalearning/views.py:320
+#: troikalearning/views.py:369
 msgid "Invalid role: "
 msgstr "Virheellinen rooli:"
 
-#: troikalearning/views.py:322
+#: troikalearning/views.py:371
 #, python-format
 msgid "as %(role)s."
 msgstr "%(role)s."
 
-#: troikalearning/views.py:324
+#: troikalearning/views.py:373
 msgid "What do you say?"
 msgstr "Mitä olet mieltä?"
 
-#: troikalearning/views.py:328
+#: troikalearning/views.py:377
 #, python-format
 msgid "Invite sent to %(email)s"
 msgstr "Kutsu lähetetty osoitteeseen %(email)s"
 
-#: troikalearning/views.py:330
+#: troikalearning/views.py:379
 msgid "Invalid invite form"
 msgstr "Virheellinen kutsulomake"
 
-#: troikalearning/views.py:368
+#: troikalearning/views.py:417
 msgid "Only the creator or the lead can edit the Troika"
 msgstr "Vain Troikan luoja tai vetäjä voi muokata Troikaa"
 
-#: troikalearning/views.py:384 troikalearning/templates/edit_troika.html:56
+#: troikalearning/views.py:433 troikalearning/templates/edit_troika.html:57
 msgid "Save Troika"
 msgstr "Tallenna Troika"
 
-#: troikalearning/views.py:387 troikalearning/views.py:622
+#: troikalearning/views.py:436 troikalearning/views.py:671
 msgid ""
 "When a date is set, you must also give values for hours, minutes and duration"
 msgstr ""
 "Kun päivämäärä on asetettu, sinun pitää myös antaa arvot tunneille, "
 "minuuteille ja kestolle"
 
-#: troikalearning/views.py:391 troikalearning/views.py:626
+#: troikalearning/views.py:440 troikalearning/views.py:675
 msgid "Start time for the Troika must be in the future"
 msgstr "Troikan alkuajankohta pitää olla tulevaisuudessa"
 
-#: troikalearning/views.py:407 troikalearning/views.py:467
+#: troikalearning/views.py:456 troikalearning/views.py:516
 msgid "Troika activated!"
 msgstr "Troika aktivoitu!"
 
-#: troikalearning/views.py:410
+#: troikalearning/views.py:459
 msgid "Troika saved"
 msgstr "Troika tallennettu"
 
-#: troikalearning/views.py:414 troikalearning/templates/edit_troika.html:59
+#: troikalearning/views.py:463 troikalearning/templates/edit_troika.html:60
 msgid "Delete Troika"
 msgstr "Poista Troika"
 
-#: troikalearning/views.py:417
+#: troikalearning/views.py:466
 #, python-format
 msgid "Troika \"%(title)s\" deleted"
 msgstr "Troika \"%(title)s\" poistettu"
 
-#: troikalearning/views.py:438
+#: troikalearning/views.py:487
 msgid "Troika Team"
 msgstr "Troika-tiimi"
 
-#: troikalearning/views.py:439
+#: troikalearning/views.py:488
 msgid "Salla, Olli, Petro and Timo"
 msgstr "Salla, Olli, Petro ja Timo"
 
-#: troikalearning/views.py:448
+#: troikalearning/views.py:497
 #, python-format
 msgid "Troika \"%(title)s\" activated!"
 msgstr "Troika \"%(title)s\" aktivoitu!"
 
-#: troikalearning/views.py:449 troikalearning/views.py:472
+#: troikalearning/views.py:498 troikalearning/views.py:521
 #, python-format
 msgid "Congratulations! The Troika \"%(title)s\":"
 msgstr "Onnittelut! Troika \"%(title)s\":"
 
-#: troikalearning/views.py:452
+#: troikalearning/views.py:501
 msgid ""
 "has now been activated. You can view the participants on the Troika page."
 msgstr "on nyt aktivoitu. Voit katsoa osallistujia Troikan sivulla."
 
-#: troikalearning/views.py:454
+#: troikalearning/views.py:503
 msgid "Happy learnings!"
 msgstr "Hauskoja oppimishetkiä!"
 
-#: troikalearning/views.py:471
+#: troikalearning/views.py:520
 #, python-format
 msgid "Troika \"%(title)s\" is just about to be born!"
 msgstr "Troika \"%(title)s\" on juuri syntymässä!"
 
-#: troikalearning/views.py:475
+#: troikalearning/views.py:524
 msgid "has now all three participants!"
 msgstr "on saanut kolme osallistujaa!"
 
-#: troikalearning/views.py:477
+#: troikalearning/views.py:526
 msgid "Your job now is to:"
 msgstr "Tehtävänänne on nyt:"
 
-#: troikalearning/views.py:479
+#: troikalearning/views.py:528
 msgid "1. decide on the remaining open details for the Troika,"
 msgstr "1. päättää lopuista avoimista asioista Troikassa."
 
-#: troikalearning/views.py:480
+#: troikalearning/views.py:529
 msgid ""
 "2. go to the Troika page and press \"Edit Troika\" (visible for the lead and "
 "creator),"
@@ -358,28 +406,28 @@ msgstr ""
 "2. mennä Troikan sivulle ja painaa \"Muokkaa Troikaa\" (näkyvillä Troikan "
 "luojalle ja vetäjälle) "
 
-#: troikalearning/views.py:481
+#: troikalearning/views.py:530
 msgid "3. add the missing information and press \"Save Troika\"."
 msgstr "3. lisätä puuttuvat tiedot ja painaa \"Tallenna Troika\"."
 
-#: troikalearning/views.py:483
+#: troikalearning/views.py:532
 msgid "Get going!"
 msgstr "Ei kun hommiin!"
 
-#: troikalearning/views.py:485
+#: troikalearning/views.py:534
 msgid "[insert inspirational quote about balalaikas here]"
 msgstr "[lisää tähän insiproiva lainaus balalaikoista]"
 
-#: troikalearning/views.py:499
+#: troikalearning/views.py:548
 msgid "Start time is in the past, change it before activating Troika"
 msgstr "Aloitusajankohta on menneisyydessä, muuta se ja yritä uudelleen"
 
-#: troikalearning/views.py:503
+#: troikalearning/views.py:552
 #, python-format
 msgid "Troika %(title)s activated"
 msgstr "Troika %(title)s aktivoitu"
 
-#: troikalearning/views.py:506
+#: troikalearning/views.py:555
 msgid ""
 "Troika can only be activated by the creator or lead after all required "
 "information is set"
@@ -387,111 +435,111 @@ msgstr ""
 "Troikan voi aktivoida vain sen luoja tai vetäjä, kun kaikki tarvittava "
 "informaatio on annettu"
 
-#: troikalearning/views.py:519
+#: troikalearning/views.py:568
 msgid "The Troika already has a lead"
 msgstr "Troikalla on jo vetäjä"
 
-#: troikalearning/views.py:524
+#: troikalearning/views.py:573
 #, python-format
 msgid "You are now the lead of %(title)s"
 msgstr "Olet nyt vetäjä Troikassa %(title)s!"
 
-#: troikalearning/views.py:528
+#: troikalearning/views.py:577
 msgid "The Troika already has a first learner"
 msgstr "Troikalla on jo ensimmäinen oppija"
 
-#: troikalearning/views.py:533
+#: troikalearning/views.py:582
 #, python-format
 msgid "You are now the first learner of %(title)s"
 msgstr "Olet nyt ensimmäinen oppija Troikassa %(title)s"
 
-#: troikalearning/views.py:537
+#: troikalearning/views.py:586
 msgid "The Troika already has a second learner"
 msgstr "Troikalla on jo toinen oppija"
 
-#: troikalearning/views.py:542
+#: troikalearning/views.py:591
 #, python-format
 msgid "You are now the second learner of %(title)s"
 msgstr "Olet nyt toinen oppija Troikassa %(title)s"
 
-#: troikalearning/views.py:546 troikalearning/views.py:559
+#: troikalearning/views.py:595 troikalearning/views.py:608
 msgid "You are already participating in the Troika"
 msgstr "Osallistut jo Troikaan"
 
-#: troikalearning/views.py:549
+#: troikalearning/views.py:598
 msgid "There is no more room in this Troika"
 msgstr "Troikassa ei ole enää tilaa"
 
-#: troikalearning/views.py:553
+#: troikalearning/views.py:602
 #, python-format
 msgid "You are now participating in %(title)s"
 msgstr "Osallistut nyt Troikaan %(title)s"
 
-#: troikalearning/views.py:556
+#: troikalearning/views.py:605
 msgid "Unknown Troika role: %(role)"
 msgstr "Tuntematon Troikan rooli: %(role)"
 
-#: troikalearning/views.py:572
+#: troikalearning/views.py:621
 msgid "You are not the lead of this Troika"
 msgstr "Et ole tämän Troikan vetäjä"
 
-#: troikalearning/views.py:576
+#: troikalearning/views.py:625
 #, python-format
 msgid "You are no longer the lead of %(title)s"
 msgstr "Et ole enää vetäjä Troikassa %(title)s"
 
-#: troikalearning/views.py:580
+#: troikalearning/views.py:629
 msgid "You are not the first learner of this Troika"
 msgstr "Et ole ensimmäinen oppija tässä Troikassa"
 
-#: troikalearning/views.py:584
+#: troikalearning/views.py:633
 #, python-format
 msgid "You are no longer the first learner of %(title)s"
 msgstr "Et ole enää ensimmäinen oppija Troikassa %(title)s"
 
-#: troikalearning/views.py:588
+#: troikalearning/views.py:637
 msgid "You are not the second learner of this Troika"
 msgstr "Et ole toinen oppija tässä Troikassa"
 
-#: troikalearning/views.py:592
+#: troikalearning/views.py:641
 #, python-format
 msgid "You are no longer the second learner of %(title)s"
 msgstr "Et ole enää toinen oppija Troikassa %(title)s"
 
-#: troikalearning/views.py:596
+#: troikalearning/views.py:645
 msgid "You are not participating in the Troika"
 msgstr "Et osallistu Troikaan"
 
-#: troikalearning/views.py:600
+#: troikalearning/views.py:649
 #, python-format
 msgid "You are no longer participating in %(title)s"
 msgstr "Et enää ole osallistujana Troikassa %(title)s"
 
-#: troikalearning/views.py:604
+#: troikalearning/views.py:653
 #, python-format
 msgid "Unknown Troika role: %(role)s"
 msgstr "Tuntematon Troikan rooli: %(role)s"
 
-#: troikalearning/views.py:607
+#: troikalearning/views.py:656
 msgid "You can not leave a Troika that is complete"
 msgstr "Et voi poistua Troikasta joka on valmistunut"
 
-#: troikalearning/views.py:644
+#: troikalearning/views.py:693
 msgid "Troika Created"
 msgstr "Troika luotu"
 
-#: troikalearning/views.py:670
+#: troikalearning/views.py:719
 msgid "Feedback saved. Thank you!"
 msgstr "Palauteesi tallennettiin. Kiitos!"
 
-#: troikalearning/views.py:685
+#: troikalearning/views.py:734
 msgid "You were logged out"
 msgstr "Kirjauduit ulos"
 
 #: troikalearning/templates/about.html:4
 #: troikalearning/templates/edit_troika.html:4
 #: troikalearning/templates/feedback.html:4
-#: troikalearning/templates/login.html:4
+#: troikalearning/templates/login.html:4 troikalearning/templates/reset.html:4
 #: troikalearning/templates/troika.html:4 troikalearning/templates/user.html:4
 msgid "Home"
 msgstr "Etusivu"
@@ -726,7 +774,7 @@ msgstr ""
 "osallistumisensa, ajasta ja paikasta on sovittu, ja joko Troika on aktivoitu "
 "automaattisesti tai \"Aktivoi Troika\" -linkkiä on klikattu."
 
-#: troikalearning/templates/edit_troika.html:51
+#: troikalearning/templates/edit_troika.html:52
 msgid "Create Troika"
 msgstr "Luo Troika"
 
@@ -766,8 +814,20 @@ msgstr "Anna palautetta"
 msgid "Login"
 msgstr "Kirjaudu sisään"
 
-#: troikalearning/templates/login.html:26
-#: troikalearning/templates/login.html:40
+#: troikalearning/templates/login.html:25
+msgid "Forgot password?"
+msgstr "Unohditko salasanasi?"
+
+#: troikalearning/templates/login.html:35
+msgid "Enter your email address"
+msgstr "Anna sähköpostiosoitteesi"
+
+#: troikalearning/templates/login.html:42
+msgid "Send reset email"
+msgstr "Lähetä ohjeet sähköpostilla"
+
+#: troikalearning/templates/login.html:49
+#: troikalearning/templates/login.html:63
 msgid "Register"
 msgstr "Rekisteröidy"
 
@@ -790,6 +850,18 @@ msgstr ""
 #: troikalearning/templates/macros.html:50
 msgid "Send email"
 msgstr "Lähetä sähköpostia"
+
+#: troikalearning/templates/reset.html:6
+msgid "Reset password"
+msgstr "Vaihda salasana"
+
+#: troikalearning/templates/reset.html:12
+msgid "Reset Password"
+msgstr "Vaihda salasana"
+
+#: troikalearning/templates/reset.html:20
+msgid "Save Password"
+msgstr "Tallenna salasana"
 
 #: troikalearning/templates/troika.html:14
 msgid "Edit Troika"

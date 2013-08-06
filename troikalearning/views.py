@@ -23,11 +23,12 @@ Created on 14.8.2012
 '''
 from troikalearning import app, mail, babel, _
 from security import validate_login, register, hash_password, get_troika_access_right, activatable, \
-                     get_redirect_target, activation_ready
+                     get_redirect_target, activation_ready, generate_password_reset_link
 from backend import Troika, get_active_troikas, get_pending_troikas, get_completed_troikas, \
                     user_exists, get_user, save_user, get_troika, save_troika, delete_troika, \
-                    Feedback, save_feedback, get_feedback
-from forms import LoginForm, RegistrationForm, TroikaForm, UserForm, FeedbackForm, LanguageForm, InviteForm
+                    Feedback, save_feedback, get_feedback, get_user_by_reset_key
+from forms import LoginForm, RegistrationForm, TroikaForm, UserForm, FeedbackForm, LanguageForm, \
+                  InviteForm, ForgotForm, ResetForm
 from flask import request, session, flash, redirect, url_for, render_template
 from datetime import datetime
 from datetime import time as dttime
@@ -125,6 +126,8 @@ def login():
     if loginform.errors:
         for key, value in loginform.errors.items():
             loginerrors.append(key + ': ' + value[0])
+    forgotform = ForgotForm()
+    
     if regform.email.data and regform.validate_on_submit():
         if (user_exists(email=regform.email.data, alias=regform.alias.data)):
             regerrors.append(_(u'User with given email or alias already exists'))
@@ -144,8 +147,8 @@ def login():
         for key, value in regform.errors.items():
             regerrors.append(key + ': ' + value[0])
 
-    return render_template('login.html', loginform=loginform, regform=regform, 
-                           loginerrors=loginerrors, regerrors=regerrors)
+    return render_template('login.html', loginform=loginform, forgotform=forgotform,
+                           regform=regform, loginerrors=loginerrors, regerrors=regerrors)
 
 def __check_login(destination = None, url = None):
     if not 'email' in session:
@@ -161,6 +164,52 @@ def login_troika(troika_id):
     # Login using
     session['destination'] = url_for('troika', troika_id = troika_id)
     return redirect(url_for('login'))
+
+@app.route('/forgot', methods=['POST'])
+def forgot():
+    forgotform = ForgotForm()
+    if forgotform.validate():
+        reset_link = generate_password_reset_link(forgotform.email.data)
+        if reset_link is None:
+            flash(_(u'Could not find user with given email'), 'error')
+        else:
+            msg = Message(_(u"Troikalearning.org password reset"),
+                      sender = ("Troika Webmaster", "webmaster@troikalearning.org"),
+                      recipients=[forgotform.email.data])
+        
+            msg.body = _("Go to the following link to reset your password in the troikalearning.org website:")
+            msg.body += "\n\n" + reset_link
+            msg.body += "\n\n"
+            msg.body += _("If you did not ask for your password to be reset, you can ignore this message.")
+            msg.body += "\n\n"
+            msg.body += __get_troika_message_signature()    
+            mail.send(msg)
+            flash(_(u'Password reset instructions sent to %(email)s', email = forgotform.email.data))
+    else:
+        flash(_(u"Invalid forgot form") + ': ' + ', '.join((key + ': ' + value[0]) for key, value in forgotform.errors.items()), 'error')
+    return redirect(get_redirect_target())
+
+@app.route('/reset/<reset_key>', methods=['GET', 'POST'])
+def reset(reset_key):
+    user = get_user_by_reset_key(reset_key)
+    if user is None:
+        flash(_(u'Invalid password reset link'), 'error')
+        return redirect(url_for('troikas'))
+    resetform = ResetForm()
+    reseterrors = []
+    if resetform.validate_on_submit():
+        user.password = hash_password(resetform.password.data)
+        user.password_reset_key = None
+        user.password_reset_expire = None
+        session['email'] = user.email
+        save_user(user)
+        flash(_(u'Password reset successful, you were logged in'))
+        return redirect(url_for('troikas'))
+    if resetform.errors:
+        for key, value in resetform.errors.items():
+            reseterrors.append(key + ': ' + value[0])
+
+    return render_template('reset.html', resetform=resetform, reseterrors=reseterrors)
 
 @app.route('/user', methods=['GET', 'POST'])
 def user():

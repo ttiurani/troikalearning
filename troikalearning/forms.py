@@ -109,4 +109,13 @@ class InviteForm(Form):
     troika_id = HiddenField(__(u"Troika Id"), [validators.Required()])
     email = TextField(__(u"Email Address"), [validators.Required(),
         validators.email(message=__(u"Not a valid email address"))])
-    
+
+class ForgotForm(Form):
+    email = TextField(__(u"Email Address"), [validators.Required(),
+        validators.email(message=__(u"Not a valid email address"))])
+
+class ResetForm(Form):
+    password = PasswordField(__(u"New Password *"), [
+        validators.Required(),
+        validators.EqualTo('confirm', message=__(u"Passwords must match"))])
+    confirm = PasswordField(__(u"Repeat New Password *"))

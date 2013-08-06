@@ -19,7 +19,7 @@ from flask import Flask
 from troikalearning import session
 import os
 from flask_mail import Mail
-from flaskext.babel import Babel, gettext, lazy_gettext
+from flask.ext.babel import Babel, gettext, lazy_gettext
 
 app = Flask(__name__)
 app.config.from_pyfile(os.getcwd() + os.sep + 'troikalearning.cfg')

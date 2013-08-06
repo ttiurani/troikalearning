@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% import 'macros.html' as macros %}
+{% block back_button %}
+<a href="/">{{ _('Home') }}</a>
+{% endblock %} 
+{% block subheading %} | {{ _('Reset password') }}{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row-fluid"> 
+    <div class="span8 offset4">  
+      <h2>{{ _('Reset Password') }}</h2>
+      {% call macros.handle_errors(errors=reseterrors) %} {% endcall %}
+      <form id="tl-user" action="" method="POST">
+        <dl>
+          <dt>{{ resetform.hidden_tag() }}</dt>
+          <dt>{{ resetform.password.label }} {{ resetform.password() }}</dt>
+          <dt>{{ resetform.confirm.label }} {{ resetform.confirm() }}</dt>
+          <dt>
+            <input type="submit" class="btn" value="{{ _('Save Password') }}">
+          </dt>
+        </dl>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

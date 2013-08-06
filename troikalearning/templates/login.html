@@ -21,6 +21,29 @@
           </dt>
         </dl>
       </form>
+      <!-- Button to trigger modal -->
+      <a href="#forgotDialog" data-toggle="modal">{{ _('Forgot password?') }}</a>
+      <!-- Modal -->
+      <div id="forgotDialog" class="modal hide fade"
+        role="dialog" aria-labelledby="forgotLabel"
+        aria-hidden="true">
+        <form id="forgot-form" action="/forgot" data-remote="true" method="POST">
+          <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal">&times;</a>
+            <button type="button" class="close" data-dismiss="modal"
+              aria-hidden="true"></button>
+            <h4 id="forgotLabel">{{ _('Enter your email address') }}</h4>
+          </div>
+          <div class="modal-body">
+            {{ forgotform.hidden_tag() }}
+            {{ forgotform.email() }}
+          </div>
+          <div class="modal-footer">
+            <input type="submit" class="btn btn-primary" value="{{ _('Send reset email') }}"/>
+          </div>
+        </form>
+      </div>
+      
     </div>
     <div class="span6">  
       <h2>{{ _('Register') }}</h2>

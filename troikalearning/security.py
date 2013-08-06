@@ -23,12 +23,14 @@ Created on 14.8.2012
 '''
 
 from troikalearning import _
-from troikalearning.backend import User, save_user, get_user
+from troikalearning.backend import User, save_user, get_user, get_user_by_reset_key
 from passlib.hash import sha256_crypt
 from flask import request, url_for, flash
 from urlparse import urlparse, urljoin
 
 import os
+from datetime import datetime
+from datetime import timedelta as dttimedelta
 
 def validate_login(email, password):
     # First get the user from the backend based on email
@@ -114,3 +116,13 @@ def get_redirect_target():
             return target
     flash(_(u'Invalid redirect target'), 'error')
     return url_for('troikas')
+
+def generate_password_reset_link(email):
+    user = get_user(email)
+    if user is None:
+        return None
+    reset_key = os.urandom(16).encode('hex')
+    user.password_reset_key = reset_key
+    user.password_reset_expire = datetime.now() + dttimedelta(minutes=60)
+    save_user(user)
+    return url_for('reset', reset_key = reset_key, _external=True)
