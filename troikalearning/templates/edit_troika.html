@@ -24,7 +24,12 @@
         <dl>
           <dt>{{ troikaform.hidden_tag() }}</dt>
           <dt>{{ troikaform.title.label }} {{ troikaform.title(class="tl-text-medium") }}</dt>
-          <dt>{{ troikaform.description.label }} {{ troikaform.description(class="tl-text-large", rows=10) }}</dt>
+          <dt>{{ troikaform.description.label }} {{ troikaform.description(class="tl-text-large", rows=10) }}<br/>
+          <label>{{ _('You can use the') }} <a href="http://daringfireball.net/projects/markdown/" target="_blank">
+          {{_('Markdown format') }}</a>
+          {{ _('to add elements and formatting to the description. For example, to add a hyperlink use ') }}
+          "[link text](http://example.com)".</label>
+          </dt>
           <dt>{{ troikaform.address.label }} {{ troikaform.address(class="tl-text-medium") }}</dt>
           <dt>{{ troikaform.address_addendum.label }} {{ troikaform.address_addendum(class="tl-text-medium") }}</dt>
           <dt>{{ troikaform.language.label }}

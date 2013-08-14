@@ -34,6 +34,8 @@ from datetime import datetime
 from datetime import time as dttime
 from datetime import timedelta as dttimedelta
 from flask_mail import Message
+import markdown
+from flask import Markup
 
 # Language Selection
 
@@ -299,7 +301,7 @@ def troika(troika_id):
              'id': troika.id,
              'phase': troika.get_phase(),
              'title': troika.title,
-             'description': troika.description,
+             'description': Markup(markdown.markdown(troika.description)),
              'address': address_text,
              'language': language_name,
              'start_time': __get_formatted_datetime(troika.start_time,"%d.%m.%Y %H:%M") if troika.start_time is not None else _(u"Not set"),

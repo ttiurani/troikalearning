@@ -41,5 +41,6 @@ setup(
         'passlib',
         'Flask-WTF',
         'flask-mail',
-        'Flask-Babel']
+        'Flask-Babel',
+        'markdown']
 )
